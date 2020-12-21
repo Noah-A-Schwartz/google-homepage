@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
     .center-elements{
         margin: 150px auto;
         display: flex;
@@ -18,6 +22,7 @@
     width: 100%;
     flex-direction: column;
     flex-wrap: nowrap;
+    
 }
 
     form{
@@ -60,6 +65,20 @@
     margin: 0 auto;
     }
 
+    #Sign-In{
+        margin-top: -5px;
+        color: #fff;
+        border: 1px solid #4285f4;
+        background: -webkit-linear-gradient(top,#4387fd,#4683ea);
+        font-weight: bold;
+        outline: none;
+        font: 400 13.3333px Arial;
+        padding: 0 12px;
+        border-radius: 2px;
+        line-height: 28px;
+        cursor: pointer;
+    }
+
     .buttons input[type="button"]:hover{
         box-shadow: 0 1px 1px rgba(0,0,0,0.1);
         background-color: #f8f9fa;
@@ -72,7 +91,7 @@
         background-color: transparent;
         border: none;
         margin: 5px 0 0 0;
-        padding: 0 40px 0px 30px;
+        padding: 0 40px 0px 50px;
         color: rgba(0,0,0,.87);
         word-wrap: break-word;
         outline: none;
@@ -124,22 +143,117 @@
     :focus{
         outline: none;
     }
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+    ul{
+        list-style-type: none;
+        padding: 5px;
+        margin: 0 5px;
+        color: #222 
+        
+    }
+
+    li{
+        display: inline-block;
+        padding: 5px;
+        padding-top: 20px;
+        margin: 0 5px;
+        color: #222;
+        font-size: 14px;
+        font-family: arial,sans-serif;
+    }
+
+    #apps{
+        z-index: 4;
+        width: 28px;
+        height: 36px;
+        margin-top: -9px;
+    }
+    .magni{
+        z-index: 4;
+        border: none;
+        background: transparent;
+        transform: translate(-530px, 13px);
+        width: 20px;
+        height: 20px;
+        background-image: url(https://img.icons8.com/android/24/000000/search.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+    .mic{
+        border: none;
+        background: transparent;
+        transform: translate(-10px, 11px);
+        width: 25px;
+        height: 25px;
+        background-image: url(https://www.gstatic.com/images/branding/googlemic/2x/googlemic_color_24dp.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+
+    #apps:hover{
+        border: 50px;
+        background-color: rgba(60,64,67,0.08);
+        border-radius: 50px;;
+    }
+    
+    footer{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+        min-width: 950px;;
+        height: 46px;
+        padding: 0;
+        border: 0;
+        vertical-align: baseline;
+        
+        
+    }
+    .footer{
+        padding: 9px;
+        color: #5f6368;
+    }
+
+    
 </style>
 <html>
     <header>
         <title>Google</title>
-    </header>
-    <main>
-    <div class="flex">
-        <nav>
-
+        <nav class = "top-nav">
+            <ul> 
+                <li style="float: left;"><a href = "https://about.google/?fg=1&utm_source=google-US&utm_medium=referral&utm_campaign=hp-header">About</a></li>
+                <li style="float: left;"><a href = "https://store.google.com/US/?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-US">Store</a></li>
+                <li style="float: right;"><a href = https://accounts.google.com/login><button id="Sign-In">Sign In</button></a></li>
+                <li style="float: right;"><a href = https://about.google/intl/en/products><img id = "apps" src="/apps.png" alt="apps logo"></a></li>
+                <li style="float: right;"><a href = "https://www.google.com/imghp?hl=en&authuser=0&ogbl">Images</a></li> 
+                <li style="float: right;"><a href = "https://mail.google.com/mail/u/0/?ogbl#inbox">Gmail</a></li>
+            </ul>
         </nav>
+    </header>
+    <main>    
+    <div class="flex"> 
     <body>
         <div class="center-elements">
             <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
             <form action="#" name="main-form" onsubmit="search()">
                     <div class = "search-field">
                         <input class ="text-search" type="text" id="search-field" name="searchfield">
+                        <input class="magni" type="button"id="magni-button" onClick="search()">
+                        <input class="mic" type="button" id="mic-button" onClick = "voiceSearch()">
+                        
                     </div>
                     <div class="buttons">
                         <input type="button" value="Google Search" onClick="search()" name = "search-button">
@@ -148,10 +262,22 @@
             </form>
         </div>
     
-    </body>
+     </body>
     </div>
 </main>
+<footer>
+    <ul>
+        <li class = "footer" style="float: left;"><a href = "https://about.google/?fg=1&utm_source=google-US&utm_medium=referral&utm_campaign=hp-header">Advertising</a></li>
+        <li class = "footer" style="float: left;"><a href = "https://store.google.com/US/?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-US">Business</a></li>
+        <li class = "footer" style="float: left;"><a href = https://accounts.google.com/login>How Search Works</a></li>
+        <li class = "footer" style="float: right;"><a href = https://about.google/intl/en/products>Settings</a></li>
+        <li class = "footer" style="float: right;"><a href = "https://mail.google.com/mail/u/0/?ogbl#inbox">Terms</a></li>
+        <li class = "footer" style="float: right;"><a href = "https://www.google.com/imghp?hl=en&authuser=0&ogbl">Privacy</a></li>    
+                
+    </ul>
+</footer>
 <script type="text/javascript">
+
 const node = document.getElementById("search-field");
 node.addEventListener("keydown", ({key}) => {
     if(event.key === "Enter"){
@@ -164,8 +290,55 @@ function search(){
     var query = document.getElementById("search-field").value
     url ='http://www.google.com/search?q=' + query;
     window.location.href = url;
+}
+
+function voiceSearch(){
+try {
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recognition = new SpeechRecognition();
+}
+catch(e) {
+  console.error(e);
+  $('.no-browser-support').show();
+  $('.app').hide();
+}
+recognition.onstart = function() { 
+ console.log('Voice recognition activated. Try speaking into the microphone.');
+}
+
+recognition.onspeechend = function() {
+  console.log('You were quiet for a while so voice recognition turned itself off.');
+}
+
+recognition.onerror = function(event) {
+  if(event.error == 'no-speech') {
+    console.log('No speech was detected. Try again.');  
+  };
+}
+recognition.start();
+
+recognition.onresult = function(event) {
+
+// event is a SpeechRecognitionEvent object.
+// It holds all the lines we have captured so far. 
+// We only need the current one.
+var current = event.resultIndex;
+
+// Get a transcript of what was said.
+var transcript = event.results[current][0].transcript;
+
+// Add the current transcript to the contents of our Note.
+
+recognition.noteContent += transcript;
+document.getElementById("search-field").value = transcript;
+search();
 
 }
+
+
+}
+
+
 
 </script>
 </html>

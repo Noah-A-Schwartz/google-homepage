@@ -163,7 +163,7 @@ node.addEventListener("keydown", ({key}) => {
 function search(){
     var query = document.getElementById("search-field").value
     url ='http://www.google.com/search?q=' + query;
-    window.location.replace(url);
+    window.location.href = url;
 
 }
 
